@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+zuul_repos_create: "{{ _zuul_repos_create['all']
+  | union ( _zuul_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+zuul_repos_download: "{{ _zuul_repos_download['all']
+  | union ( _zuul_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+zuul_templates_copy: "{{ _zuul_templates_copy['all']
+  | union ( _zuul_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+zuul_services_enable: "{{ _zuul_services_enable['all']
+  | union ( _zuul_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+zuul_selinux_enable: "{{ _zuul_selinux_enable['all']
+  | union ( _zuul_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+zuul_packages_remove: "{{ _zuul_packages_remove['all']
+  | union ( _zuul_packages_remove[my_os]
+  | default([]) ) }}"
+zuul_packages_repos: "{{ _zuul_packages_repos['all']
+  | union ( _zuul_packages_repos[my_os]
+  | default([]) ) }}"
+zuul_packages_prereq: "{{ _zuul_packages_prereq['all']
+  | union ( _zuul_packages_prereq[my_os]
+  | default([]) ) }}"
+zuul_packages_install: "{{ _zuul_packages_install['all']
+  | union ( _zuul_packages_install[my_os]
+  | default([]) ) }}"

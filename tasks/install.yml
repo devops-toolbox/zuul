@@ -1,0 +1,27 @@
+---
+# Install zuul packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ zuul_packages_remove }}"
+    state: absent
+  become: true
+  when: zuul_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ zuul_packages_repos }}"
+    state: "{{ zuul_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ zuul_packages_prereq }}"
+    state: "{{ zuul_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ zuul_packages_install }}"
+    state: "{{ zuul_packages_state }}"
+  become: true
