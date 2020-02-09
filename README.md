@@ -8,10 +8,10 @@ zuul: Zuul
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.zuul](https://galaxy.ansible.com/devops-toolbox.zuul)
+[https://galaxy.ansible.com/devopstoolbox.zuul](https://galaxy.ansible.com/devopstoolbox.zuul)
 
 ```bash
-ansible-galaxy install devops-toolbox.zuul
+ansible-galaxy install devopstoolbox.zuul
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: zuul is configured
       import_role:
-        name: devops-toolbox.zuul
+        name: devopstoolbox.zuul
       vars:
         zuul_packages_state: present
         zuul_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
